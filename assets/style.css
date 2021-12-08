@@ -1,0 +1,15 @@
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    
+}
+
+header {
+    background-color: navy;
+}
+
+#searchbtn{
+    height: 30px;
+    width: 80px;
+
+}
