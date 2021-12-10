@@ -1,5 +1,5 @@
-$(document).ready(fuction())
-    console.log("connected")
+// $(document).ready(fuction())
+    // console.log("connected")
 
 // API key generated
     let apiKey = "8ae1cbcf432e978890179005eaec9e01";
@@ -18,7 +18,7 @@ getCurrentWeather(userSearch);
 function getCurrentWeather(userSearch){
     console.log("userSearch in getCurrentWeather function", userSearch)
 
-let queryUrl = 'http://api.openweathermap.org/data/2.5/weather?q={userSeach}&appid={apiKey}'
+let queryUrl = 'http://api.openweathermap.org/data/2.5/weather?q='+userSearch+'&appid='+apiKey
 
 console.log("queryUrl", queryUrl)
 fetch(queryUrl)
@@ -27,12 +27,12 @@ fetch(queryUrl)
     console.log("GET CURRENT WEATHER CALL, data")
 })
 
-// assiging bootstrap classes to h2 and div elements and storing in variables
-let cityName = $("h2 class = 'card-title'>").text(data.name);
-let temperature = $("div class = 'card-text'>").text("Temperature: " + data.main.temp + "F");
-let humidity = $("<div class = 'card-text'>").text("Humidity: " + data.main.humidity + "%");
-let wind = $("<div class = 'card-text'>").text("Wind Speed: " + data.wind.speed + "mph");
-let icon = $("<img src = 'http://openweathermap.org/img/wn/${data.weather[0].icon}.pn'>");
+// storing h2 and div elements in variables
+let cityName = $(cityName).text(data.name);
+let temperature = $(temperature).text("Temperature: " + data.main.temp + "F");
+let humidity = $(humidity).text("Humidity: " + data.main.humidity + "%");
+let wind = $(wind).text("Wind Speed: " + data.wind.speed + "mph");
+let icon = $("<img src = 'http://openweathermap.org/img/wn/${data.weather[0].icon}.png'>");
 
 // combine the dynamically created elements to currentweather
 $("currentWeather").append(cityName, icon, temp, humidity, wind);
